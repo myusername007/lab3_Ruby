@@ -9,6 +9,8 @@ gem "rails", "~> 7.1.6"
 gem "sprockets-rails"
 
 gem "devise"
+
+gem "rake", "~> 13.0"
 gem "sassc-rails"
 gem "bootstrap", "~> 5.3.3"  
 # Use sqlite3 as the database for Active Record
