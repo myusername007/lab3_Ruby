@@ -1,0 +1,33 @@
+<%= form_with(model: castle, local: true, class: "row g-3") do |form| %>
+
+  <div class="col-md-6">
+    <%= form.label :name, "Castle name" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :region, "Region" %>
+    <%= form.text_field :region, class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :built_year, "Year" %>
+    <%= form.number_field :built_year, class: "form-control" %>
+  </div>
+
+  <div class="col-md-6">
+    <%= form.label :image_url, "URL image" %>
+    <%= form.text_field :image_url, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, rows: 5, class: "form-control" %>
+  </div>
+
+  <div class="col-12 mt-3">
+    <%= form.submit "Save", class: "btn btn-primary" %>
+    <%= link_to "Back", castles_path, class: "btn btn-secondary ms-2" %>
+  </div>
+
+<% end %>

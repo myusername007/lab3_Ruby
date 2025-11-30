@@ -1,0 +1,22 @@
+<h1 class="mb-4">Ukrainian castles</h1>
+
+<% if user_signed_in? %>
+  <%= link_to "Add new castle", new_castle_path, class: "btn btn-primary mb-3" %>
+<% end %>
+
+<div class="row">
+  <% @castles.each do |castle| %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <% if castle.image_url.present? %>
+          <img src="<%= castle.image_url %>" class="card-img-top" style="height:200px; object-fit:cover;">
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= castle.name %></h5>
+          <p class="card-text"><%= castle.region %></p>
+          <%= link_to "Show", castle, class: "btn btn-sm btn-primary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

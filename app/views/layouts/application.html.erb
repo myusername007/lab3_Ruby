@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Castles UA</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="/">Castles UA</a>
+
+        <div class="d-flex">
+          <% if user_signed_in? %>
+            <span class="navbar-text me-3">
+              <%= current_user.email %>
+            </span>
+            <%= button_to "Exit", destroy_user_session_path, method: :delete, class: "btn btn-outline-light btn-sm", form_class: "d-inline" %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-light btn-sm me-2" %>
+            <%= link_to "Register", new_user_registration_path, class: "btn btn-warning btn-sm" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key == "notice" ? "success" : "danger" %>">
+          <%= value %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+
+  </body>
+</html>
